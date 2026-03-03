@@ -94,19 +94,18 @@ async function getNewMovie() {
       datas.data.items.forEach((e) => {
         item += `<div class="swiper-slide">
               <div class="banner-item image-zoom-effect">
-                <div class="image-holder">
+                <div class="image-holder group relative">
                   <a href="/phim/${e.slug}">
-                    <img src="https://img.ophim.live/uploads/movies/${e.thumb_url}" alt="Thumbnail" class="img-fluid">
+                    <img src="https://img.ophim.live/uploads/movies/${e.thumb_url}" alt="Thumbnail" class="img-fluid w-full h-[500px] object-cover">
+                  </a>
+                  <a href="/phim/${e.slug}" class="absolute bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 group-hover:block hidden" title="Xem ngay">
+                    <ion-icon name="play-circle-outline" class="size-24 rounded-full text-amber-200"></ion-icon>
+                    <span class="size-24 rounded-full bg-amber-100/50 animate-ping absolute inset-0"></span>
+                    <span class="size-24 rounded-full bg-amber-100/25 animate-ping delay-500 absolute inset-0"></span>
                   </a>
                 </div>
-                <div class="banner-content py-4">
-                  <h5 class="element-title text-uppercase">
-                    <a href="/the-loai/${e.slug}" class="item-anchor">${e.name}</a>
-                  </h5>
-                  <p>Scelerisque duis aliquam qui lorem ipsum dolor amet, consectetur adipiscing elit.</p>
-                  <div class="btn-left">
-                    <a href="#" class="btn-link fs-6 text-uppercase item-anchor text-decoration-none">Discover Now</a>
-                  </div>
+                <div class="banner-content pt-3">
+                  <h5 class="element-title text-uppercase w-[370px] truncate">${e.name}</h5>
                 </div>
               </div>
             </div>`;
@@ -128,12 +127,12 @@ async function callAPI(type) {
 }
 
 function initPage() {
-    addCategoriesNav();
-    addCountriesNav();
-    addCatLists();
-    getNewMovie();
+  addCategoriesNav();
+  addCountriesNav();
+  addCatLists();
+  getNewMovie();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    initPage();
+  initPage();
 });
