@@ -116,6 +116,19 @@ async function getNewMovie() {
   }
 }
 
+/* function targetAPINavbar() {
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const href = link.href.split(window.location.origin.toString() + "/")[1];
+      const target = baseUrl + href;
+    });
+  });
+} */
+
 async function callAPI(type) {
   try {
     const res = await fetch(`${baseUrl}${type}`, options);
@@ -127,10 +140,12 @@ async function callAPI(type) {
 }
 
 function initPage() {
-  addCategoriesNav();
-  addCountriesNav();
-  addCatLists();
-  getNewMovie();
+  Promise.all([
+    addCategoriesNav(),
+    addCountriesNav(),
+    addCatLists().
+    getNewMovie(),
+  ]);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
