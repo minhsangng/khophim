@@ -26,6 +26,11 @@
 </head>
 
 <body>
+    <header id="header"></header>
+    <main>
+        
+    </main>
+    <footer id="footer"></footer>
 
     <script src="../js/data.js"></script>
     <script src="../js/jquery.min.js"></script>
@@ -41,9 +46,23 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script>
         const params = new URLSearchParams(window.location.search);
-        const type = params.get("type");
+        const list = params.get("list") || "";
+        
+        const arrTitles = {
+            "phim-le": "Phim lẻ",
+            "phim-bo": "Phim bộ",
+            "phim-chieu-rap": "Phim chiếu rạp",
+            "phim-hoat-hinh": "Phim hoạt hình",
+            "phim-chien-tranh": "Phim chiến tranh",
+            "phim-kinh-di": "Phim kinh dị",
+            "phim-tam-ly": "Phim tâm lý",
+            "phim-hanh-dong": "Phim hành động",
+            "phim-vien-tuong": "Phim viễn tưởng",
+            "phim-co-trang": "Phim cổ trang",
+            "phim-thieu-nhi": "Phim thiếu nhi"
+        }
 
-        document.title = type;
+        document.title = arrTitles[list] || list;
     </script>
 </body>
 
